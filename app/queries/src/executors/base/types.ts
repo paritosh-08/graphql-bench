@@ -25,6 +25,15 @@ export type ExecutionStrategy =
   | 'CUSTOM'
 
 /**
+ * The mode for executing the queries
+ * ASYNC: Run all queries in parallel
+ * SYNC: Run all queries in sequence
+ */
+export type ExecutionMode =
+  | 'ASYNC'
+  | 'SYNC'
+
+/**
  * Shared configuration between all benchmark runs
  */
 export interface GlobalConfig {
@@ -44,6 +53,7 @@ export interface GlobalConfig {
    * })
    */
   writeStream?: stream.Writable
+  execution_mode?: ExecutionMode
 }
 
 export enum BenchmarkTool {
